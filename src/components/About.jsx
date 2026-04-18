@@ -52,10 +52,6 @@ export default function About() {
 						</div>
 						<h3>{t("about.history")}</h3>
 						<p>{t("about.description")}</p>
-						<div className="about-bts-note">
-							<Award size={16} />
-							<span>{t("about.diploma")}</span>
-						</div>
 					</div>
 
 					<div className="about-card about-education">
