@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import anime from "animejs";
 import BlurText from "./bits/BlurText";
-import { personalInfo, education } from "../data/content";
+import { education } from "../data/content";
 import { GraduationCap, Building2, Award, BookOpen } from "lucide-react";
 import "./About.css";
 
 export default function About() {
+	const { t } = useTranslation();
 	const statsRef = useRef(null);
 
 	useEffect(() => {
@@ -38,9 +40,9 @@ export default function About() {
 			<div className="container">
 				<div className="about-header">
 					<h2 id="about-title" className="section-title">
-						<BlurText text="À propos" />
+						<BlurText text={t("about.title")} />
 					</h2>
-					<p className="section-subtitle">Passionné par le développement et les nouvelles technologies depuis toujours.</p>
+					<p className="section-subtitle">{t("about.subtitle")}</p>
 				</div>
 
 				<div className="about-grid">
@@ -48,11 +50,11 @@ export default function About() {
 						<div className="about-icon">
 							<BookOpen size={24} />
 						</div>
-						<h3>Mon histoire</h3>
-						<p>{personalInfo.description}</p>
+						<h3>{t("about.history")}</h3>
+						<p>{t("about.description")}</p>
 						<div className="about-bts-note">
 							<Award size={16} />
-							<span>Diplôme BTS SIO SLAM validé, actuellement en cycle ingénieur EPITA</span>
+							<span>{t("about.diploma")}</span>
 						</div>
 					</div>
 
@@ -60,7 +62,7 @@ export default function About() {
 						<div className="about-icon">
 							<GraduationCap size={24} />
 						</div>
-						<h3>Formation</h3>
+						<h3>{t("about.formation")}</h3>
 						<div className="education-list">
 							{education.map((edu) => (
 								<div key={edu.id} className="education-item">
@@ -88,19 +90,19 @@ export default function About() {
 						<span className="stat-number" data-value="5">
 							0
 						</span>
-						<span className="stat-label">Années d'expérience</span>
+						<span className="stat-label">{t("about.experience")}</span>
 					</div>
 					<div className="stat-item">
 						<span className="stat-number" data-value="3">
 							0
 						</span>
-						<span className="stat-label">Entreprises</span>
+						<span className="stat-label">{t("about.companies")}</span>
 					</div>
 					<div className="stat-item">
 						<span className="stat-number" data-value="5">
 							0
 						</span>
-						<span className="stat-label">Certifications</span>
+						<span className="stat-label">{t("about.certifications")}</span>
 					</div>
 				</div>
 			</div>

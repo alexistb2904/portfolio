@@ -1,0 +1,108 @@
+{
+	"nav": {
+		"about": "About",
+		"experience": "Experience",
+		"projects": "Projects",
+		"skills": "Skills",
+		"contact": "Contact"
+	},
+	"hero": {
+		"title": "Alexis Thierry-Bellefond",
+		"subtitle": "Junior Software Engineer",
+		"role": "Full Stack Developer",
+		"location": "Paris, France",
+		"based": "based in",
+		"cta": "Discover my journey",
+		"ctaSecondary": "Contact me"
+	},
+	"about": {
+		"title": "About",
+		"subtitle": "Passionate about development and new technologies since childhood.",
+		"description": "Since my childhood, I have been passionate about computing and all new technologies. I have successfully carried out several projects over the years, such as creating servers, 3D models, content for Garry's Mod, as well as designing websites and applications. All these experiences have allowed me to acquire skills in different languages and master many topics related to computer science. Currently pursuing a degree in Computer Engineering at EPITA and graduate of a BTS SIO SLAM.",
+		"history": "My Story",
+		"formation": "Education",
+		"diploma": "BTS SIO SLAM diploma validated, currently in EPITA engineering program",
+		"experience": "Years of Experience",
+		"companies": "Companies",
+		"certifications": "Certifications"
+	},
+	"experience": {
+		"title": "Experience",
+		"subtitle": "My professional journey through internships and roles at AXA, City of Paris, and MyLuxuryCar.",
+		"type_alternate": "Internship Contract",
+		"exp_axa": {
+			"role": "Junior Software Engineer",
+			"company": "AXA France",
+			"date": "September 2025 - Today",
+			"duration": "8 months",
+			"location": "Paris and surrounding areas · Hybrid",
+			"description": "Development with modern stacks, integration in an enterprise environment with agile methodologies."
+		},
+		"exp_paris": {
+			"role": "Full Stack Developer",
+			"company": "City of Paris",
+			"date": "November 2023 - July 2025",
+			"duration": "1 year 9 months",
+			"location": "Paris, Île-de-France, France · Hybrid",
+			"description": "Design and implementation of innovative features by leveraging Google App Script to improve existing tools. Led the creation of a dynamic web interface connected to Google Sheets for room and event management. Creation and sending of targeted newsletters. Website administration and maintenance."
+		},
+		"exp_luxurycar": {
+			"role": "Full Stack Developer",
+			"company": "MyLuxuryCar Paris",
+			"date": "August 2023 - October 2023",
+			"duration": "3 months",
+			"location": "Châtillon, Île-de-France, France · On-site",
+			"description": "Complete website creation from A to Z design, development, deployment. Complete admin interface for vehicle management, content and statistics. Integration of external API to synchronize vehicles. SEO optimization, infrastructure management and social media communication."
+		}
+	},
+	"projects": {
+		"title": "Projects",
+		"subtitle": "Personal and professional projects that showcase my skills.",
+		"workshop": {
+			"title": "WorkshopRessources",
+			"date": "March 2021 - Today",
+			"description": "Platform dedicated to content creators for Garry's Mod featuring resources, images and tutorials. Exclusive 100% Open-Source tools to optimize modders' projects. Initially built with native PHP, now converted to React for better user experience and easier maintenance."
+		},
+		"epitime": {
+			"title": "EpiTime",
+			"date": "2026 - Today",
+			"description": "Website created to replace EPITA's scheduling system, Zeus, which I found impractical. It is developed in React and uses an external API to fetch schedule data."
+		},
+		"reflect": {
+			"title": "ReFlect",
+			"date": "March 2026 - Today",
+			"description": "A project aimed at the FiveM video game, the website is a license management platform for servers developed by the ReFlect Team."
+		},
+		"myluxury": {
+			"title": "MyLuxuryCar Paris",
+			"date": "August 2023 - October 2023",
+			"description": "Website created during my internship at MyLuxuryCar Paris. I built the entire site from scratch using PHP for the backend and JavaScript for the frontend. I also integrated an external API to synchronize vehicles and optimized the site's SEO."
+		}
+	},
+	"skills": {
+		"title": "Skills",
+		"subtitle": "Technologies and domains I master.",
+		"backend": "Backend",
+		"frontend": "Frontend",
+		"devops": "DevOps & Tools",
+		"softskills": "Soft Skills",
+		"languages": "Languages",
+		"certifications": "Certifications",
+		"native": "Native language - Bilingual",
+		"professional": "Full professional proficiency"
+	},
+	"contact": {
+		"title": "Contact",
+		"subtitle": "An opportunity, a question, or just want to chat? Feel free to reach out.",
+		"heading": "Let's stay in touch",
+		"description": "Currently interning at AXA and pursuing an engineering degree at EPITA. Don't hesitate to contact me for any opportunity, question, or simply to exchange ideas!",
+		"email": "Email",
+		"linkedin": "LinkedIn",
+		"github": "GitHub",
+		"location": "Location"
+	},
+	"footer": {
+		"copyright": "© 2026 Alexis Thierry-Bellefond. All rights reserved.",
+		"credits": "Designed and developed with passion"
+	}
+}

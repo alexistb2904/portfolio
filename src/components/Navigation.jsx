@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useTheme } from "../context/ThemeContext";
-import { Sun, Moon, Menu, X, Github, Linkedin, Mail } from "lucide-react";
+import { Sun, Moon, Menu, X, Github, Linkedin, Mail, Globe } from "lucide-react";
 import "./Navigation.css";
 
 export default function Navigation() {
 	const { theme, toggleTheme } = useTheme();
+	const { t, i18n } = useTranslation();
 	const [scrolled, setScrolled] = useState(false);
 	const [menuOpen, setMenuOpen] = useState(false);
+	const [langMenuOpen, setLangMenuOpen] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -16,11 +19,11 @@ export default function Navigation() {
 	}, []);
 
 	const links = [
-		{ href: "#about", label: "À propos" },
-		{ href: "#experience", label: "Expériences" },
-		{ href: "#projects", label: "Projets" },
-		{ href: "#skills", label: "Compétences" },
-		{ href: "#contact", label: "Contact" },
+		{ href: "#about", label: t("nav.about") },
+		{ href: "#experience", label: t("nav.experience") },
+		{ href: "#projects", label: t("nav.projects") },
+		{ href: "#skills", label: t("nav.skills") },
+		{ href: "#contact", label: t("nav.contact") },
 	];
 
 	const scrollTo = (e, href) => {
@@ -28,6 +31,11 @@ export default function Navigation() {
 		setMenuOpen(false);
 		const el = document.querySelector(href);
 		if (el) el.scrollIntoView({ behavior: "smooth" });
+	};
+
+	const handleLanguageChange = (lng) => {
+		i18n.changeLanguage(lng);
+		setLangMenuOpen(false);
 	};
 
 	return (
@@ -52,13 +60,13 @@ export default function Navigation() {
 						</a>
 					))}
 					<div className="nav-socials-mobile">
-						<a href="https://github.com/alexistb2904" target="_blank" rel="noopener noreferrer" aria-label="GitHub d'Alexis Thierry-Bellefond">
+						<a href="https://github.com/alexistb2904" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
 							<Github size={20} />
 						</a>
-						<a href="https://www.linkedin.com/in/alexistb/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn d'Alexis Thierry-Bellefond">
+						<a href="https://www.linkedin.com/in/alexistb/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
 							<Linkedin size={20} />
 						</a>
-						<a href="mailto:alexistb2904@gmail.com" aria-label="Envoyer un email à Alexis Thierry-Bellefond">
+						<a href="mailto:alexistb2904@gmail.com" aria-label="Email">
 							<Mail size={20} />
 						</a>
 					</div>
@@ -73,6 +81,24 @@ export default function Navigation() {
 							<Linkedin size={18} />
 						</a>
 					</div>
+
+					<div className="nav-language-selector">
+						<button className="lang-toggle" onClick={() => setLangMenuOpen(!langMenuOpen)} aria-label="Change language">
+							<Globe size={18} />
+							<span className="lang-code">{i18n.language.toUpperCase()}</span>
+						</button>
+						{langMenuOpen && (
+							<div className="lang-menu">
+								<button className={`lang-option ${i18n.language === "fr" ? "active" : ""}`} onClick={() => handleLanguageChange("fr")}>
+									Français
+								</button>
+								<button className={`lang-option ${i18n.language === "en" ? "active" : ""}`} onClick={() => handleLanguageChange("en")}>
+									English
+								</button>
+							</div>
+						)}
+					</div>
+
 					<button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
 						{theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
 					</button>

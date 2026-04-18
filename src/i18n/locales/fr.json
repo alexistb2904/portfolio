@@ -1,0 +1,108 @@
+{
+	"nav": {
+		"about": "À propos",
+		"experience": "Expériences",
+		"projects": "Projets",
+		"skills": "Compétences",
+		"contact": "Contact"
+	},
+	"hero": {
+		"title": "Alexis Thierry-Bellefond",
+		"subtitle": "Ingénieur Logiciel Junior",
+		"role": "Développeur Full Stack",
+		"location": "Paris, France",
+		"based": "basé à",
+		"cta": "Découvrir mon parcours",
+		"ctaSecondary": "Me contacter"
+	},
+	"about": {
+		"title": "À propos",
+		"subtitle": "Passionné par le développement et les nouvelles technologies depuis toujours.",
+		"description": "Depuis mon plus jeune âge, je suis passionné d'informatique et de toutes les nouvelles technologies. J'ai mené à bien plusieurs projets au fil des années, tels que la création de serveurs, de modèles 3D, de contenus sur Garry's Mod, ainsi que la conception de sites web et d'applications. Toutes ces expériences m'ont permis d'acquérir des compétences dans différents langages et de maîtriser de nombreux sujets liés à l'informatique. Actuellement en cycle ingénieur à l'EPITA et issu d'un BTS SIO SLAM.",
+		"history": "Mon histoire",
+		"formation": "Formation",
+		"diploma": "Diplôme BTS SIO SLAM validé, actuellement en cycle ingénieur EPITA",
+		"experience": "Années d'expérience",
+		"companies": "Entreprises",
+		"certifications": "Certifications"
+	},
+	"experience": {
+		"title": "Expériences",
+		"subtitle": "Mon parcours professionnel en alternance et mes missions chez AXA, la Ville de Paris et MyLuxuryCar.",
+		"type_alternate": "Contrat en alternance",
+		"exp_axa": {
+			"role": "Ingénieur Logiciels Junior",
+			"company": "AXA en France",
+			"date": "Septembre 2025 - Aujourd'hui",
+			"duration": "8 mois",
+			"location": "Paris et périphérie · Hybride",
+			"description": "Développement sur des stacks modernes, intégration dans un environnement enterprise avec méthodologies agiles."
+		},
+		"exp_paris": {
+			"role": "Développeur Full Stack",
+			"company": "Ville de Paris",
+			"date": "Novembre 2023 - Juillet 2025",
+			"duration": "1 an 9 mois",
+			"location": "Paris, Île-de-France, France · Hybride",
+			"description": "Conception et implémentation de fonctionnalités innovantes en exploitant Google App Script pour améliorer les outils existants. Pilote de la création d'une interface web dynamique connectée à Google Sheets pour la gestion des salles et événements. Création et envoi de newsletters ciblées. Administration et maintenance du site web de l'entreprise."
+		},
+		"exp_luxurycar": {
+			"role": "Développeur Full Stack",
+			"company": "MyLuxuryCar Paris",
+			"date": "Août 2023 - Octobre 2023",
+			"duration": "3 mois",
+			"location": "Châtillon, Île-de-France, France · Sur site",
+			"description": "Création complète du site web de A à Z maquettage, développement, mise en ligne. Interface administrateur complète pour la gestion des véhicules, du contenu et des statistiques. Intégration d'une API externe pour synchroniser les véhicules. Optimisation SEO, gestion des machines et communication réseaux sociaux."
+		}
+	},
+	"projects": {
+		"title": "Projets",
+		"subtitle": "Des projets personnels et professionnels qui démontrent mes compétences.",
+		"workshop": {
+			"title": "WorkshopRessources",
+			"date": "Mars 2021 - Aujourd'hui",
+			"description": "Plateforme dédiée aux créateurs de contenus pour Garry's Mod regroupant ressources, images et tutoriels. Outils exclusifs 100% Open-Source pour optimiser les projets des moddeurs. Initialement fait en PHP Natif maintenant en React pour une meilleure expérience utilisateur et une maintenance facilitée."
+		},
+		"epitime": {
+			"title": "EpiTime",
+			"date": "2026 - Aujourd'hui",
+			"description": "Site réalisé pour remplacer le système d'emploi du temps de l'EPITA, Zeus que je trouvais pas assez pratique. Il est développé en React et utilise une API externe pour récupérer les données de l'emploi du temps."
+		},
+		"reflect": {
+			"title": "ReFlect",
+			"date": "Mars 2026 - Aujourd'hui",
+			"description": "Un projet visant le jeu vidéo FiveM, le site est une platforme de gestions de licenses pour les serveurs développé par la Team ReFlect."
+		},
+		"myluxury": {
+			"title": "MyLuxuryCar Paris",
+			"date": "Août 2023 - Octobre 2023",
+			"description": "Site réalisé lors de mon alternance chez MyLuxuryCar Paris, j'ai réalisé le site de A à Z en utilisant PHP pour le backend et JavaScript pour le frontend. J'ai également intégré une API externe pour synchroniser les véhicules et optimisé le SEO du site."
+		}
+	},
+	"skills": {
+		"title": "Compétences",
+		"subtitle": "Technologies et domaines maîtrisés.",
+		"backend": "Backend",
+		"frontend": "Frontend",
+		"devops": "DevOps & Outils",
+		"softskills": "Soft Skills",
+		"languages": "Langues",
+		"certifications": "Certifications",
+		"native": "Langue natale - Bilingue",
+		"professional": "Capacité professionnelle complète"
+	},
+	"contact": {
+		"title": "Contact",
+		"subtitle": "Une opportunité, une question ou juste envie de discuter ? N'hésitez pas.",
+		"heading": "Restons en contact",
+		"description": "Actuellement en alternance chez AXA et en cycle ingénieur à l'EPITA, n'hésitez pas à me contacter pour toute opportunité, question ou simplement pour échanger !",
+		"email": "Email",
+		"linkedin": "LinkedIn",
+		"github": "GitHub",
+		"location": "Localisation"
+	},
+	"footer": {
+		"copyright": "© 2026 Alexis Thierry-Bellefond. Tous droits réservés.",
+		"credits": "Conçu et développé avec passion"
+	}
+}

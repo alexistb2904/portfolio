@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import anime from "animejs";
 import BlurText from "./bits/BlurText";
 import SpotlightCard from "./bits/SpotlightCard";
@@ -7,6 +8,7 @@ import { ExternalLink, Github, FolderGit2 } from "lucide-react";
 import "./Projects.css";
 
 export default function Projects() {
+	const { t } = useTranslation();
 	const gridRef = useRef(null);
 
 	useEffect(() => {
@@ -37,18 +39,47 @@ export default function Projects() {
 		return () => observer.disconnect();
 	}, []);
 
+	const getProjectsTranslations = () => {
+		return [
+			{
+				...projects[0],
+				title: t("projects.workshop.title"),
+				date: t("projects.workshop.date"),
+				description: t("projects.workshop.description"),
+			},
+			{
+				...projects[1],
+				title: t("projects.epitime.title"),
+				date: t("projects.epitime.date"),
+				description: t("projects.epitime.description"),
+			},
+			{
+				...projects[2],
+				title: t("projects.reflect.title"),
+				date: t("projects.reflect.date"),
+				description: t("projects.reflect.description"),
+			},
+			{
+				...projects[3],
+				title: t("projects.myluxury.title"),
+				date: t("projects.myluxury.date"),
+				description: t("projects.myluxury.description"),
+			},
+		];
+	};
+
 	return (
 		<section id="projects" className="section projects" aria-labelledby="projects-title">
 			<div className="container">
 				<div className="projects-header">
 					<h2 id="projects-title" className="section-title">
-						<BlurText text="Projets" />
+						<BlurText text={t("projects.title")} />
 					</h2>
-					<p className="section-subtitle">Une sélection de mes projets personnels et professionnels.</p>
+					<p className="section-subtitle">{t("projects.subtitle")}</p>
 				</div>
 
 				<div className="projects-grid" ref={gridRef}>
-					{projects.map((project) => (
+					{getProjectsTranslations().map((project) => (
 						<SpotlightCard key={project.id} className="project-card" spotlightColor="rgba(220, 38, 38, 0.1)">
 							<div className="project-content">
 								<div className="project-icon">
@@ -74,13 +105,13 @@ export default function Projects() {
 									{project.link !== "#" && (
 										<a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
 											<ExternalLink size={16} />
-											Voir le projet
+											{t("projects.title")}
 										</a>
 									)}
 									{project.github !== "#" && (
 										<a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link secondary">
 											<Github size={16} />
-											Code source
+											Code
 										</a>
 									)}
 								</div>

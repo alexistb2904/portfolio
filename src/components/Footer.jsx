@@ -1,23 +1,34 @@
+import { useTranslation } from "react-i18next";
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 import { personalInfo } from "../data/content";
 import "./Footer.css";
 
 export default function Footer() {
+	const { t } = useTranslation();
+
+	const footerLinks = [
+		{ href: "#about", label: t("nav.about") },
+		{ href: "#experience", label: t("nav.experience") },
+		{ href: "#projects", label: t("nav.projects") },
+		{ href: "#skills", label: t("nav.skills") },
+		{ href: "#contact", label: t("nav.contact") },
+	];
+
 	return (
 		<footer className="footer">
 			<div className="container">
 				<div className="footer-content">
 					<div className="footer-brand">
 						<span className="footer-logo">&lt;ATB/&gt;</span>
-						<p className="footer-tagline">Développeur passionné, en constante évolution.</p>
+						<p className="footer-tagline">Développeur passionné, en constante évolution</p>
 					</div>
 
 					<div className="footer-links">
-						<a href="#about">À propos</a>
-						<a href="#experience">Expériences</a>
-						<a href="#projects">Projets</a>
-						<a href="#skills">Compétences</a>
-						<a href="#contact">Contact</a>
+						{footerLinks.map((link) => (
+							<a key={link.href} href={link.href}>
+								{link.label}
+							</a>
+						))}
 					</div>
 
 					<div className="footer-socials">
@@ -34,10 +45,10 @@ export default function Footer() {
 				</div>
 
 				<div className="footer-bottom">
-					© {new Date().getFullYear()} {personalInfo.name}
+					{t("footer.copyright")}
 					<br />
 					<span>
-						Fait avec <Heart size={14} className="footer-heart" />
+						{t("footer.credits")} <Heart size={14} className="footer-heart" />
 					</span>
 				</div>
 			</div>

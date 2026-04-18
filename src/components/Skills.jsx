@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import anime from "animejs";
 import BlurText from "./bits/BlurText";
 import { skills as skillsData, languages, certifications } from "../data/content";
@@ -6,6 +7,7 @@ import { Code2, Globe, Award, Terminal } from "lucide-react";
 import "./Skills.css";
 
 export default function Skills() {
+	const { t } = useTranslation();
 	const gridRef = useRef(null);
 
 	useEffect(() => {
@@ -42,14 +44,24 @@ export default function Skills() {
 		"Soft Skills": Globe,
 	};
 
+	const getCategoryTranslation = (category) => {
+		const translations = {
+			Backend: t("skills.backend"),
+			Frontend: t("skills.frontend"),
+			"DevOps & Outils": t("skills.devops"),
+			"Soft Skills": t("skills.softskills"),
+		};
+		return translations[category] || category;
+	};
+
 	return (
 		<section id="skills" className="section skills" aria-labelledby="skills-title">
 			<div className="container">
 				<div className="skills-header">
 					<h2 id="skills-title" className="section-title">
-						<BlurText text="Compétences" />
+						<BlurText text={t("skills.title")} />
 					</h2>
-					<p className="section-subtitle">Stack technique et savoir-faire acquis au fil des expériences.</p>
+					<p className="section-subtitle">{t("skills.subtitle")}</p>
 				</div>
 
 				<div className="skills-grid" ref={gridRef}>
@@ -59,7 +71,7 @@ export default function Skills() {
 							<div key={category.category} className="skills-category">
 								<div className="skills-cat-header">
 									<Icon size={20} />
-									<h3>{category.category}</h3>
+									<h3>{getCategoryTranslation(category.category)}</h3>
 								</div>
 								<div className="skills-list">
 									{category.items.map((item) => (
@@ -75,19 +87,19 @@ export default function Skills() {
 
 				<div className="skills-bottom">
 					<div className="skills-languages">
-						<h3>Langues</h3>
+						<h3>{t("skills.languages")}</h3>
 						<div className="languages-list">
 							{languages.map((lang) => (
 								<div key={lang.name} className="language-item">
 									<span className="language-name">{lang.name}</span>
-									<span className="language-level">{lang.level}</span>
+									<span className="language-level">{lang.name === "Français" ? t("skills.native") : t("skills.professional")}</span>
 								</div>
 							))}
 						</div>
 					</div>
 
 					<div className="skills-certifications">
-						<h3>Certifications</h3>
+						<h3>{t("skills.certifications")}</h3>
 						<div className="cert-list">
 							{certifications.map((cert) => (
 								<div key={cert.id} className="cert-item">

@@ -1,15 +1,16 @@
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import anime from "animejs";
 import DecryptedText from "./bits/DecryptedText";
 import ShinyText from "./bits/ShinyText";
 import MagneticButton from "./bits/MagneticButton";
 import Beams from "./bits/Beams";
 import { ArrowDown, MapPin } from "lucide-react";
-import { personalInfo } from "../data/content";
 import { useTheme } from "../context/ThemeContext";
 import "./Hero.css";
 
 export default function Hero() {
+	const { t } = useTranslation();
 	const heroRef = useRef(null);
 	const contentRef = useRef(null);
 	const { theme } = useTheme();
@@ -54,23 +55,23 @@ export default function Hero() {
 
 			<div className="hero-content" ref={contentRef}>
 				<h1 className="hero-title">
-					<DecryptedText text={personalInfo.name} speed={40} className="hero-name" />
+					<DecryptedText text={t("hero.title")} speed={40} className="hero-name" />
 				</h1>
 
 				<h2 className="hero-subtitle">
-					<ShinyText text={personalInfo.title} speed={4} />
+					<ShinyText text={t("hero.subtitle")} speed={4} />
 				</h2>
 
 				<p className="hero-description">
-					{personalInfo.subtitle} basé à{" "}
+					{t("hero.role")} {t("hero.based")}{" "}
 					<span className="hero-location">
 						<MapPin size={16} />
-						{personalInfo.location}
+						{t("hero.location")}
 					</span>
 				</p>
 
 				<div className="hero-cta">
-					<MagneticButton onClick={scrollToAbout}>Découvrir mon parcours</MagneticButton>
+					<MagneticButton onClick={scrollToAbout}>{t("hero.cta")}</MagneticButton>
 					<a
 						href="#contact"
 						className="hero-cta-secondary"
@@ -78,7 +79,7 @@ export default function Hero() {
 							e.preventDefault();
 							document.querySelector("#contact").scrollIntoView({ behavior: "smooth" });
 						}}>
-						Me contacter
+						{t("hero.ctaSecondary")}
 					</a>
 				</div>
 			</div>
