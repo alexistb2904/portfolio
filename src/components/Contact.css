@@ -1,0 +1,91 @@
+.contact {
+	background: var(--color-surface);
+}
+
+.contact-header {
+	margin-bottom: 4rem;
+}
+
+.contact-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2.5rem;
+	max-width: 820px;
+}
+
+.contact-info h3 {
+	font-size: 1.75rem;
+	margin-bottom: 1rem;
+	font-weight: 700;
+}
+
+.contact-description {
+	color: var(--color-text-secondary);
+	line-height: 1.7;
+	margin-bottom: 2.5rem;
+}
+
+.contact-links {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.contact-link {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem 1.25rem;
+	background: var(--color-card);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	text-decoration: none;
+	color: var(--color-text);
+	transition: all var(--transition-base);
+}
+
+.contact-link:not(.no-hover):hover {
+	border-color: var(--color-primary);
+	transform: translateX(8px);
+	background: var(--color-surface-2);
+}
+
+.contact-link-icon {
+	width: 40px;
+	height: 40px;
+	border-radius: var(--radius-sm);
+	background: var(--color-primary-glow);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-primary);
+	flex-shrink: 0;
+}
+
+.contact-link-content {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.contact-link-label {
+	font-size: 0.75rem;
+	color: var(--color-text-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.contact-link-value {
+	font-size: 0.9rem;
+	font-weight: 500;
+}
+
+@media (max-width: 768px) {
+	.contact-grid {
+		gap: 2rem;
+	}
+
+	.contact-link:not(.no-hover):hover {
+		transform: translateX(4px);
+	}
+}

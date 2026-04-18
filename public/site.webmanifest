@@ -1,0 +1,22 @@
+{
+	"name": "Portfolio Alexis Thierry-Bellefond",
+	"short_name": "Portfolio ATB",
+	"description": "Portfolio d'Alexis Thierry-Bellefond, Développeur Full Stack et Ingénieur Logiciel Junior.",
+	"lang": "fr-FR",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#0f1117",
+	"theme_color": "#0f1117",
+	"icons": [
+		{
+			"src": "/logo.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/logo.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}

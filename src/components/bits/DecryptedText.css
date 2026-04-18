@@ -1,0 +1,5 @@
+.decrypted-text {
+  font-family: var(--font-mono);
+  display: inline-block;
+  cursor: default;
+}

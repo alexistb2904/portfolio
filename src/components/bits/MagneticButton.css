@@ -1,0 +1,25 @@
+.magnetic-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-out, background var(--transition-base);
+  will-change: transform;
+}
+
+.magnetic-button:hover {
+  background: var(--color-primary-hover);
+}
+
+.magnetic-button:active {
+  transform: scale(0.96) !important;
+}
