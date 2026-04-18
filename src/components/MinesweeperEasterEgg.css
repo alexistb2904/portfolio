@@ -1,0 +1,304 @@
+.minesweeper-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 1500;
+	display: grid;
+	place-items: center;
+	padding: 24px;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	background: rgba(5, 5, 7, 0.82);
+}
+
+.minesweeper-card {
+	width: min(720px, 100%);
+	max-height: min(92vh, 900px);
+	overflow-y: auto;
+	background: linear-gradient(140deg, var(--color-surface) 0%, var(--color-surface-2) 100%);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-lg);
+	padding: 20px;
+	display: grid;
+	gap: 16px;
+}
+
+.minesweeper-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.minesweeper-label {
+	font-size: 0.78rem;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: var(--color-accent);
+	font-weight: 700;
+	margin-bottom: 6px;
+}
+
+.minesweeper-header h2 {
+	font-size: clamp(1.2rem, 2.6vw, 1.9rem);
+	line-height: 1.2;
+	letter-spacing: -0.01em;
+}
+
+.minesweeper-close {
+	width: 38px;
+	height: 38px;
+	border-radius: 10px;
+	border: 1px solid var(--color-border);
+	background: transparent;
+	color: var(--color-text);
+	font-size: 1.55rem;
+	cursor: pointer;
+	transition:
+		transform var(--transition-fast),
+		border-color var(--transition-fast),
+		color var(--transition-fast);
+}
+
+.minesweeper-close:hover {
+	transform: translateY(-1px);
+	border-color: var(--color-primary);
+	color: var(--color-primary);
+}
+
+.minesweeper-rules {
+	padding: 10px 12px;
+	border-radius: 10px;
+	background: color-mix(in oklab, var(--color-surface-2) 88%, var(--color-bg));
+	border: 1px solid var(--color-border);
+}
+
+.minesweeper-rules-title {
+	font-size: 0.88rem;
+	font-weight: 700;
+	color: var(--color-accent);
+	margin-bottom: 8px;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.minesweeper-rules-list {
+	font-size: 0.85rem;
+	color: var(--color-text-secondary);
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.minesweeper-rules-list li:before {
+	content: "→ ";
+	color: var(--color-primary);
+	font-weight: 600;
+	margin-right: 4px;
+}
+
+.minesweeper-controls {
+	display: flex;
+	justify-content: center;
+}
+
+.minesweeper-mode-btn {
+	padding: 10px 16px;
+	border: 1px solid var(--color-border);
+	background: transparent;
+	color: var(--color-text);
+	border-radius: 10px;
+	font-weight: 600;
+	font-size: 0.9rem;
+	cursor: pointer;
+	transition: all var(--transition-fast);
+}
+
+.minesweeper-mode-btn:hover {
+	border-color: var(--color-primary);
+	color: var(--color-primary);
+	transform: translateY(-1px);
+}
+
+.minesweeper-mode-btn.active {
+	background: color-mix(in oklab, var(--color-primary) 18%, var(--color-surface-2));
+	border-color: var(--color-primary);
+	color: var(--color-accent);
+}
+
+.minesweeper-subtitle {
+	color: var(--color-text-secondary);
+	font-size: 0.95rem;
+}
+
+.minesweeper-stats {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 10px;
+}
+
+.minesweeper-stats span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px 10px;
+	border-radius: 10px;
+	border: 1px solid var(--color-border);
+	font-size: 0.9rem;
+	font-weight: 600;
+	background: color-mix(in oklab, var(--color-surface-2) 84%, transparent);
+}
+
+.minesweeper-grid {
+	display: grid;
+	grid-template-columns: repeat(8, minmax(0, 1fr));
+	width: min(100%, 540px);
+	margin-inline: auto;
+	gap: clamp(4px, 1vw, 6px);
+}
+
+.minesweeper-cell {
+	aspect-ratio: 1;
+	min-height: 32px;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	background: color-mix(in oklab, var(--color-surface) 80%, var(--color-bg));
+	color: var(--color-text);
+	font-size: clamp(0.82rem, 1.8vw, 0.95rem);
+	font-weight: 700;
+	cursor: pointer;
+	transition:
+		transform var(--transition-fast),
+		border-color var(--transition-fast),
+		background var(--transition-fast);
+}
+
+.minesweeper-cell:hover {
+	transform: translateY(-1px);
+	border-color: var(--color-primary);
+}
+
+.minesweeper-cell.is-revealed {
+	background: color-mix(in oklab, var(--color-surface-2) 92%, white 8%);
+	cursor: default;
+}
+
+.minesweeper-cell.is-mine {
+	background: color-mix(in oklab, var(--color-primary) 24%, var(--color-surface-2));
+	border-color: color-mix(in oklab, var(--color-primary) 70%, var(--color-border));
+}
+
+.minesweeper-footer {
+	display: grid;
+	gap: 12px;
+}
+
+.minesweeper-status {
+	font-weight: 600;
+	font-size: 0.95rem;
+	color: var(--color-text-secondary);
+}
+
+.status-lost {
+	color: #f87171;
+}
+
+.status-won {
+	color: #4ade80;
+}
+
+.minesweeper-actions {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+}
+
+.minesweeper-btn {
+	border: 1px solid var(--color-primary);
+	background: var(--color-primary);
+	color: #fff;
+	padding: 9px 14px;
+	border-radius: 10px;
+	font-weight: 700;
+	font-size: 0.9rem;
+	cursor: pointer;
+	transition:
+		background var(--transition-fast),
+		transform var(--transition-fast),
+		border-color var(--transition-fast);
+}
+
+.minesweeper-btn:hover {
+	background: var(--color-primary-hover);
+	transform: translateY(-1px);
+}
+
+.minesweeper-btn.ghost {
+	background: transparent;
+	color: var(--color-text);
+	border-color: var(--color-border);
+}
+
+.minesweeper-btn.ghost:hover {
+	border-color: var(--color-primary);
+	color: var(--color-primary);
+	background: transparent;
+}
+
+@media (max-height: 740px) {
+	.minesweeper-overlay {
+		place-items: start center;
+		padding-block: 10px;
+	}
+
+	.minesweeper-card {
+		max-height: calc(100dvh - 20px);
+	}
+}
+
+@media (max-width: 768px) {
+	.minesweeper-overlay {
+		padding: 12px;
+		place-items: start center;
+	}
+
+	.minesweeper-card {
+		width: 100%;
+		max-height: calc(100dvh - 24px);
+		padding: 14px;
+		gap: 12px;
+	}
+
+	.minesweeper-stats {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 480px) {
+	.minesweeper-subtitle,
+	.minesweeper-status {
+		font-size: 0.88rem;
+	}
+
+	.minesweeper-actions {
+		justify-content: stretch;
+	}
+
+	.minesweeper-btn {
+		flex: 1;
+		padding: 10px 12px;
+	}
+}
+
+@media (max-width: 380px) {
+	.minesweeper-card {
+		padding: 12px;
+	}
+
+	.minesweeper-cell {
+		border-radius: 6px;
+	}
+}
