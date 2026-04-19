@@ -75,6 +75,7 @@ export default function SEO() {
 			<meta name="twitter:description" content={description} />
 			<meta name="twitter:image" content={`${siteUrl}/logo.png`} />
 			<link rel="canonical" href={canonicalUrl} />
+			<meta name="google-site-verification" content="C2v6kVDxQEK8c-PqG8jBGrJk8Ia3lDcGYhYgKJZwE5k" />
 			<script type="application/ld+json">{JSON.stringify(structuredData)}</script>
 		</Helmet>
 	);
