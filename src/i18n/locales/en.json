@@ -65,7 +65,7 @@
 		"epitime": {
 			"title": "EpiTime",
 			"date": "2026 - Today",
-			"description": "Website created to replace EPITA's scheduling system, Zeus, which I found impractical. It is developed in React and uses an external API to fetch schedule data."
+			"description": "Website created to replace EPITA's scheduling system, Zeus, which I found impractical. It is developed in React and uses an external API to fetch schedule data. It now also has a mobile application."
 		},
 		"reflect": {
 			"title": "ReFlect",

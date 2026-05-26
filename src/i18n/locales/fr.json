@@ -65,7 +65,7 @@
 		"epitime": {
 			"title": "EpiTime",
 			"date": "2026 - Aujourd'hui",
-			"description": "Site réalisé pour remplacer le système d'emploi du temps de l'EPITA, Zeus que je trouvais pas assez pratique. Il est développé en React et utilise une API externe pour récupérer les données de l'emploi du temps."
+			"description": "Site réalisé pour remplacer le système d'emploi du temps de l'EPITA, Zeus que je trouvais pas assez pratique. Il est développé en React et utilise une API externe pour récupérer les données de l'emploi du temps. Dispose désormais d'une application mobile."
 		},
 		"reflect": {
 			"title": "ReFlect",
