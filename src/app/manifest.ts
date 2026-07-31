@@ -11,7 +11,7 @@ export default function manifest(): MetadataRoute.Manifest {
 		theme_color: "#090909",
 		icons: [
 			{
-				src: "/atb_logo.png",
+				src: "/logo_atb.png",
 				sizes: "any",
 				type: "image/png",
 			},

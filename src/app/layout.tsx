@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 		title: "Alexis - Creative Developer & Engineer",
 		description: "Full-stack developer creating web, mobile and software products.",
 	},
-	icons: { icon: "/icon.svg" },
+	icons: { icon: "/logo_atb.png" },
 };
 
 export const viewport: Viewport = {
