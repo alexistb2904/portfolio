@@ -4713,7 +4713,7 @@ strong {
 
 	.lab-drawer {
 		display: flex;
-		min-height: 600px;
+		min-height: 500px;
 		padding: 14px;
 	}
 
@@ -4725,7 +4725,7 @@ strong {
 	}
 
 	.lab-drawer h3 {
-		margin-top: 0;
+		margin-top: 3vh;
 		font-size: clamp(1.9rem, 8.5vw, 2.45rem);
 		letter-spacing: -0.07em;
 		line-height: 0.92;

@@ -92,7 +92,6 @@ export function Lab() {
 							<article className={`lab-drawer drawer-tone-${index + 1}`}>
 								<div className="lab-drawer-handle">
 									<span>{item.code}</span>
-									<i />
 								</div>
 								<LabAsset item={item} />
 								<h3>{item.title}</h3>
