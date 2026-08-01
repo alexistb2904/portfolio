@@ -1618,15 +1618,20 @@ strong {
 
 .project-giant-index {
 	position: absolute;
-	top: -0.16em;
-	left: -0.07em;
+	top: clamp(-3rem, -4vw, -0.5rem);
+	left: clamp(-3rem, -4vw, -1rem);
 	color: currentColor;
-	font-family: var(--font-anybody), sans-serif;
-	font-size: clamp(18rem, 39vw, 44rem);
-	font-variation-settings: "wdth" 45;
-	font-weight: 900;
+	width: clamp(20rem, 39vw, 44rem);
+	aspect-ratio: 10 / 11;
 	opacity: 0.08;
 	pointer-events: none;
+}
+
+.project-giant-index svg {
+	display: block;
+	width: 60%;
+	height: 60%;
+	fill: currentColor;
 }
 
 .project-header {
@@ -1656,12 +1661,13 @@ strong {
 
 .project-title-mask {
 	overflow: hidden;
+	width: 100%;
 }
 
 .project-title {
 	font-family: var(--font-anybody), sans-serif;
 	font-size: clamp(5rem, 12.3vw, 14rem);
-	font-variation-settings: "wdth" 105;
+	font-variation-settings: "wdth" 100;
 	font-weight: 850;
 	text-align: right;
 	letter-spacing: -0.02em;
@@ -1670,11 +1676,11 @@ strong {
 
 .project-workshop .project-title {
 	font-size: clamp(4rem, 8.4vw, 9.6rem);
-	font-variation-settings: "wdth" 65;
+	font-variation-settings: "wdth" 55;
 }
 
 .project-reflect .project-title {
-	font-variation-settings: "wdth" 132;
+	font-variation-settings: "wdth" 110;
 }
 
 .project-stage {

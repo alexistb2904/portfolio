@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,6 +9,27 @@ import { useLanguage } from "./LanguageProvider";
 import { ProjectCarousel } from "./ProjectCarousel";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+const projectIndexPaths: Record<string, ReactNode> = {
+	"01": (
+		<>
+			<path d="M16 28C16 15 24 8 38 8h18c14 0 22 7 22 20v164c0 13-8 20-22 20H38c-14 0-22-7-22-20V28Zm24 8c-5 0-8 3-8 8v132c0 5 3 8 8 8h14c5 0 8-3 8-8V44c0-5-3-8-8-8H40Z" />
+			<path d="M112 45 150 8h24v204h-24V42l-23 22-15-19Z" />
+		</>
+	),
+	"02": (
+		<>
+			<path d="M16 28C16 15 24 8 38 8h18c14 0 22 7 22 20v164c0 13-8 20-22 20H38c-14 0-22-7-22-20V28Zm24 8c-5 0-8 3-8 8v132c0 5 3 8 8 8h14c5 0 8-3 8-8V44c0-5-3-8-8-8H40Z" />
+			<path d="M104 30c0-14 8-22 22-22h34c14 0 22 8 22 22v47c0 15-6 26-18 38l-34 35v34h52v28h-78V140l43-47c7-8 11-16 11-25V43c0-5-3-8-8-8h-16c-5 0-8 3-8 8v23h-26V30Z" />
+		</>
+	),
+	"03": (
+		<>
+			<path d="M16 28C16 15 24 8 38 8h18c14 0 22 7 22 20v164c0 13-8 20-22 20H38c-14 0-22-7-22-20V28Zm24 8c-5 0-8 3-8 8v132c0 5 3 8 8 8h14c5 0 8-3 8-8V44c0-5-3-8-8-8H40Z" />
+			<path d="M104 8h56c14 0 22 8 22 22v45c0 10-4 17-12 22 8 5 12 12 12 22v71c0 14-8 22-22 22h-34c-14 0-22-8-22-22v-36h26v23c0 5 3 8 8 8h16c5 0 8-3 8-8v-49c0-5-3-8-8-8h-28V92h28c5 0 8-3 8-8V43c0-5-3-8-8-8h-48V8Z" />
+		</>
+	),
+};
 
 export function ProjectShowcase() {
 	const { copy } = useLanguage();
@@ -21,7 +42,8 @@ export function ProjectShowcase() {
       const compactViewport = window.matchMedia("(max-width: 720px)").matches;
 
 			const workIntro = root.current.querySelectorAll(".work-intro > *");
-			gsap.set(workIntro, { y: 70, autoAlpha: 0 });
+			// Keep the section heading exposed to assistive technology before its reveal.
+			gsap.set(workIntro, { y: 70, opacity: 0 });
 
 			ScrollTrigger.create({
 				trigger: ".work-intro",
@@ -30,7 +52,7 @@ export function ProjectShowcase() {
 				onEnter: () =>
 					gsap.to(workIntro, {
 						y: 0,
-						autoAlpha: 1,
+						opacity: 1,
 						duration: 0.9,
 						stagger: 0.1,
 						ease: "power4.out",
@@ -136,7 +158,9 @@ export function ProjectShowcase() {
 				{copy.work.projects.map((project) => (
 					<article key={project.id} className={`project-article project-${project.visual}`}>
 						<span className="project-giant-index" aria-hidden="true">
-							{project.index.slice(0, 2)}
+							<svg viewBox="0 0 200 220" focusable="false">
+								{projectIndexPaths[project.index.slice(0, 2)]}
+							</svg>
 						</span>
 						<header className="project-header page-shell">
 							<div>
