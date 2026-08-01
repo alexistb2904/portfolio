@@ -11,19 +11,43 @@ import { useLanguage } from "./LanguageProvider";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const EMAIL = "alexistb2904@gmail.com";
+const WEBMCP_CONTACT_TOOL_NAME = "sendContactMessage";
 type SubmissionState = "idle" | "sending" | "success" | "error" | "rate_limited";
+type ContactToolResult = { ok: true; message: string } | { ok: false; error: string };
+type WebMcpSubmitEvent = SubmitEvent & {
+	agentInvoked?: boolean;
+	respondWith?: (response: Promise<ContactToolResult>) => void;
+};
+type WebMcpToolEvent = Event & { toolName?: string };
 
 export function Contact() {
 	const { copy } = useLanguage();
 	const root = useRef<HTMLElement>(null);
 	const [copied, setCopied] = useState(false);
 	const [submissionState, setSubmissionState] = useState<SubmissionState>("idle");
+	const [isWebMcpActive, setIsWebMcpActive] = useState(false);
 
 	useEffect(() => {
 		if (!copied) return;
 		const timeout = window.setTimeout(() => setCopied(false), 2400);
 		return () => window.clearTimeout(timeout);
 	}, [copied]);
+
+	useEffect(() => {
+		const activateTool = (event: Event) => {
+			if ((event as WebMcpToolEvent).toolName === WEBMCP_CONTACT_TOOL_NAME) setIsWebMcpActive(true);
+		};
+		const cancelTool = (event: Event) => {
+			if ((event as WebMcpToolEvent).toolName === WEBMCP_CONTACT_TOOL_NAME) setIsWebMcpActive(false);
+		};
+
+		window.addEventListener("toolactivated", activateTool);
+		window.addEventListener("toolcancel", cancelTool);
+		return () => {
+			window.removeEventListener("toolactivated", activateTool);
+			window.removeEventListener("toolcancel", cancelTool);
+		};
+	}, []);
 
 	useGSAP(
 		() => {
@@ -80,9 +104,7 @@ export function Contact() {
 		setCopied(true);
 	};
 
-	const submitForm = async (event: FormEvent<HTMLFormElement>) => {
-		event.preventDefault();
-		const form = event.currentTarget;
+	const submitContactMessage = async (form: HTMLFormElement): Promise<ContactToolResult> => {
 		const formData = new FormData(form);
 		setSubmissionState("sending");
 
@@ -94,14 +116,30 @@ export function Contact() {
 			});
 			if (response.status === 429) {
 				setSubmissionState("rate_limited");
-				return;
+				return { ok: false, error: "The contact form rate limit has been reached. Please try again later." };
 			}
 			if (!response.ok) throw new Error("Contact request failed");
 			form.reset();
 			setSubmissionState("success");
+			return { ok: true, message: "Contact message sent successfully." };
 		} catch {
 			setSubmissionState("error");
+			return { ok: false, error: "The contact message could not be sent. Please try again." };
+		} finally {
+			setIsWebMcpActive(false);
 		}
+	};
+
+	const submitForm = async (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		const nativeEvent = event.nativeEvent as WebMcpSubmitEvent;
+		const submission = submitContactMessage(event.currentTarget);
+
+		if (nativeEvent.agentInvoked && nativeEvent.respondWith) {
+			nativeEvent.respondWith(submission);
+		}
+
+		await submission;
 	};
 
 	const formCopy = copy.contact.form;
@@ -141,24 +179,59 @@ export function Contact() {
 						</div>
 					</div>
 
-					<form className="contact-form" onSubmit={submitForm} aria-describedby="contact-form-feedback">
+					<form
+						className={`contact-form${isWebMcpActive ? " is-webmcp-active" : ""}`}
+						onSubmit={submitForm}
+						aria-describedby="contact-form-feedback"
+						toolname={WEBMCP_CONTACT_TOOL_NAME}
+						tooldescription="Sends a portfolio contact message to Alexis Thierry-Bellefond. Use it when the visitor wants to make contact about a project, collaboration, or opportunity."
+						toolautosubmit="">
 						<div className="contact-form-row">
 							<label>
 								<span>{formCopy.firstName}</span>
-								<input name="firstName" autoComplete="given-name" placeholder={formCopy.firstNamePlaceholder} required maxLength={80} />
+								<input
+									name="firstName"
+									autoComplete="given-name"
+									placeholder={formCopy.firstNamePlaceholder}
+									required
+									maxLength={80}
+									toolparamdescription="The visitor's given name."
+								/>
 							</label>
 							<label>
 								<span>{formCopy.lastName}</span>
-								<input name="lastName" autoComplete="family-name" placeholder={formCopy.lastNamePlaceholder} required maxLength={80} />
+								<input
+									name="lastName"
+									autoComplete="family-name"
+									placeholder={formCopy.lastNamePlaceholder}
+									required
+									maxLength={80}
+									toolparamdescription="The visitor's family name."
+								/>
 							</label>
 						</div>
 						<label>
 							<span>{formCopy.email}</span>
-							<input name="email" type="email" autoComplete="email" placeholder={formCopy.emailPlaceholder} required maxLength={254} />
+							<input
+								name="email"
+								type="email"
+								autoComplete="email"
+								placeholder={formCopy.emailPlaceholder}
+								required
+								maxLength={254}
+								toolparamdescription="The email address Alexis can use to reply to the visitor."
+							/>
 						</label>
 						<label>
 							<span>{formCopy.message}</span>
-							<textarea name="message" rows={5} placeholder={formCopy.messagePlaceholder} required maxLength={3000} />
+							<textarea
+								name="message"
+								rows={5}
+								placeholder={formCopy.messagePlaceholder}
+								required
+								maxLength={3000}
+								toolparamdescription="The complete message the visitor wants to send, including relevant project or collaboration details."
+							/>
 						</label>
 						<label className="contact-honeypot" aria-hidden="true">
 							Website

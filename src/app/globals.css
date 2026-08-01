@@ -3699,7 +3699,7 @@ strong {
 	font-size: clamp(5rem, 13.5vw, 15rem);
 	font-variation-settings: "wdth" 95;
 	font-weight: 880;
-	letter-spacing: -0.05em;
+	letter-spacing: -0.025em;
 	line-height: 0.79;
 }
 
@@ -3788,6 +3788,17 @@ strong {
 .contact-form {
 	display: grid;
 	gap: 22px;
+}
+
+/* Visible confirmation when a WebMCP agent has populated this form. */
+.contact-form.is-webmcp-active {
+	outline: 2px dashed var(--bone);
+	outline-offset: 10px;
+}
+
+.contact-form.is-webmcp-active .contact-submit {
+	background: var(--bone);
+	color: var(--ink);
 }
 
 .contact-form-row {
