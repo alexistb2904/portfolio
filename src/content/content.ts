@@ -40,7 +40,6 @@ export interface PortfolioCopy {
 		scroll: string;
 		location: string;
 		discipline: string;
-		machine: Array<{ code: string; label: string }>;
 	};
 	work: {
 		index: string;
@@ -140,7 +139,7 @@ export const content: Record<Locale, PortfolioCopy> = {
 		menu: { open: "Open navigation", close: "Close navigation" },
 		language: { switchTo: "Passer le site en français", short: "FR" },
 		nav: [
-			{ label: "Machines", href: "#work" },
+			{ label: "Projects", href: "#work" },
 			{ label: "Method", href: "#profile" },
 			{ label: "Side projects", href: "#lab" },
 			{ label: "Journey", href: "#journey" },
@@ -157,11 +156,6 @@ export const content: Record<Locale, PortfolioCopy> = {
 			scroll: "Start the journey",
 			location: "Paris · France",
 			discipline: "Interface → Logic → Runtime",
-			machine: [
-				{ code: "01", label: "Surface" },
-				{ code: "02", label: "Logic" },
-				{ code: "03", label: "Runtime" },
-			],
 		},
 		work: {
 			index: "01",
@@ -400,7 +394,7 @@ export const content: Record<Locale, PortfolioCopy> = {
 		menu: { open: "Ouvrir la navigation", close: "Fermer la navigation" },
 		language: { switchTo: "Switch website to English", short: "EN" },
 		nav: [
-			{ label: "Machines", href: "#work" },
+			{ label: "Projets", href: "#work" },
 			{ label: "Méthode", href: "#profile" },
 			{ label: "À côté", href: "#lab" },
 			{ label: "Parcours", href: "#journey" },
@@ -417,16 +411,11 @@ export const content: Record<Locale, PortfolioCopy> = {
 			scroll: "Lancer l'aventure",
 			location: "Paris · France",
 			discipline: "Interface → Logique → Runtime",
-			machine: [
-				{ code: "01", label: "Surface" },
-				{ code: "02", label: "Logique" },
-				{ code: "03", label: "Runtime" },
-			],
 		},
 		work: {
 			index: "01",
-			label: "Trois produits vivants",
-			title: "TROIS PRODUITS.\nTROIS MÉCANIQUES.",
+			label: "Trois projets vivants",
+			title: "TROIS PROJETS.\nTROIS MÉCANIQUES.",
 			intro: "Chaque projet possède sa propre identité, ses propres mécaniques, sa propre vision.",
 			carousel: {
 				previous: "Visuel précédent",

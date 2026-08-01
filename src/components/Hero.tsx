@@ -60,14 +60,6 @@ export function Hero() {
 				ease: "none",
 				scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: 0.8 },
 			});
-			{
-				/*gsap.to(".stack-machine", {
-				yPercent: 34,
-				rotate: 5,
-				ease: "none",
-				scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: 0.9 },
-			});*/
-			}
 		},
 		{ scope: root }
 	);
@@ -107,22 +99,6 @@ export function Hero() {
 						<span style={{ lineHeight: ".82" }}>{copy.hero.titleC}</span>
 					</span>
 				</h1>
-
-				{/*<div className="stack-machine" aria-hidden="true">
-					<div className="machine-spine">
-						<span>ATB</span>
-						<small>FULL CHAIN</small>
-					</div>
-					{copy.hero.machine.map((layer, index) => (
-						<div key={layer.code} className={`machine-blade machine-blade-${index + 1}`}>
-							<span>{layer.code}</span>
-							<strong>{layer.label}</strong>
-							<i />
-						</div>
-					))}
-					<div className="machine-bolt machine-bolt-a" />
-					<div className="machine-bolt machine-bolt-b" />
-				</div> */}
 			</div>
 
 			<div className="hero-bottom page-shell">
