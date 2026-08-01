@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Keyboard } from "swiper/modules";
 import type { Swiper as SwiperInstance } from "swiper";
@@ -67,7 +68,7 @@ export function ProjectCarousel({ project, previousLabel, nextLabel, placeholder
 				{slides.map((slide) => (
 					<SwiperSlide key={slide.id}>
 						<figure className="carousel-plate">
-							<img src={slide.src} alt={slide.alt} loading="lazy" decoding="async" />
+							<Image src={slide.src} alt={slide.alt} fill sizes="(max-width: 720px) 90vw, 62vw" quality={75} />
 							<figcaption>
 								<span>{slide.index}</span>
 								<strong>{slide.layer}</strong>

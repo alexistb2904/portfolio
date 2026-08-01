@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Github, Linkedin, Menu, X } from "lucide-react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -78,7 +79,7 @@ export function Navigation() {
 			<a className="brand" href="#top" aria-label="ATB - Alexis Thierry-Bellefond - home">
 				<span className={`brand-logo-slot${siteBrand.logoSrc ? " has-custom-logo" : ""}`} aria-hidden="true">
 					{siteBrand.logoSrc ? (
-						<img src={siteBrand.logoSrc} alt={siteBrand.logoAlt} />
+						<Image src={siteBrand.logoSrc} alt="" width={35} height={35} sizes="35px" />
 					) : (
 						<>
 							<i>LOGO</i>
