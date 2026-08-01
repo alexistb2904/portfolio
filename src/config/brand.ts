@@ -1,4 +1,4 @@
 export const siteBrand = {
-	logoSrc: "/logo_atb.png",
+	logoSrc: "/logo.svg",
 	logoAlt: "Alexis Thierry-Bellefond logo",
 };

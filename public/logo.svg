@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 304 100" role="img" aria-labelledby="title desc" style="color:#b87878">
+  <title id="title">Logo ATB</title>
+  <g fill="currentColor">
+    <path fill-rule="evenodd" d="
+      M0 98
+      L74 0
+      H273
+      C291 0 301 9 301 22
+      C301 33 294 42 282 47
+      C296 50 304 60 304 73
+      C304 89 291 98 272 98
+      H179
+      C187 91 191 84 191 76
+      V30
+      H219
+      V39
+      C229 41 250 41 260 40
+      C266 39 269 35 269 30
+      C269 25 265 22 259 22
+      H96
+      L37 98
+      Z
+
+      M219 57
+      H261
+      C268 57 272 61 272 67
+      C272 74 267 78 260 78
+      H219
+      Z
+    "/>
+
+    <path d="
+      M98 30
+      H134
+      V98
+      H104
+      V60
+      H77
+      Z
+    "/>
+
+    <path d="
+      M147 30
+      H179
+      V76
+      C179 86 174 94 165 98
+      H147
+      Z
+    "/>
+  </g>
+</svg>
