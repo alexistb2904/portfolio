@@ -111,7 +111,7 @@ export function Contact() {
 	return (
 		<section ref={root} id="contact" className="contact-section" aria-labelledby="contact-title" data-cursor-tone="ink">
 			<div className="page-shell contact-shell">
-				<div className="section-cue section-cue-orange">
+				<div className="section-cue section-cue-rose">
 					<span>{copy.contact.index}</span>
 					<p>{copy.contact.label}</p>
 				</div>

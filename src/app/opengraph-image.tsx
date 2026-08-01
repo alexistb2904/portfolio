@@ -47,7 +47,7 @@ export default function OpenGraphImage() {
 					alignItems: "center",
 					justifyContent: "space-between",
 					padding: "0 42px",
-					background: "#ff4d00",
+					background: "#b87878",
 					color: "#090909",
 					fontSize: 28,
 					fontWeight: 800,
@@ -87,7 +87,7 @@ export default function OpenGraphImage() {
 					alignItems: "center",
 					justifyContent: "space-between",
 					padding: "0 42px",
-					background: "#304ffe",
+					background: "#476960",
 					color: "#eee8dc",
 					fontSize: 28,
 					fontWeight: 800,
@@ -111,7 +111,7 @@ export default function OpenGraphImage() {
 					lineHeight: 0.78,
 				}}>
 				<span>I BUILD</span>
-				<span style={{ color: "#ff4d00", marginLeft: 38 }}>THE WHOLE</span>
+				<span style={{ color: "#b87878", marginLeft: 38 }}>THE WHOLE</span>
 				<span style={{ color: "transparent", WebkitTextStroke: "2px #eee8dc", marginLeft: 100 }}>SYSTEM.</span>
 			</div>
 

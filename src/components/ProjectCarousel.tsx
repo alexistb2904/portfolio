@@ -17,14 +17,14 @@ interface ProjectCarouselProps {
 }
 
 const toneByProject = {
-	epitime: "blue",
-	workshop: "orange",
+	epitime: "pine",
+	workshop: "rose",
 	reflect: "bone",
 } as const;
 
 const placeholderColors = {
-	epitime: { background: "304ffe", foreground: "eee8dc" },
-	workshop: { background: "ff4d00", foreground: "090909" },
+	epitime: { background: "476960", foreground: "eee8dc" },
+	workshop: { background: "b87878", foreground: "090909" },
 	reflect: { background: "eee8dc", foreground: "090909" },
 } as const;
 
