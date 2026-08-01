@@ -72,7 +72,7 @@ export function Navigation() {
 	};
 
 	return (
-		<header ref={root} className="site-header">
+		<header ref={root} className={`site-header ${menuOpen ? "is-open" : ""}`}>
 			<span ref={progress} className="scroll-progress" aria-hidden="true" />
 
 			<a className="brand" href="#top" aria-label="ATB - Alexis Thierry-Bellefond - home">
