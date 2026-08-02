@@ -20,13 +20,13 @@ interface ProjectCarouselProps {
 const toneByProject = {
 	epitime: "pine",
 	workshop: "rose",
-	reflect: "bone",
+	readme: "bone",
 } as const;
 
 const placeholderColors = {
 	epitime: { background: "476960", foreground: "eee8dc" },
 	workshop: { background: "b87878", foreground: "090909" },
-	reflect: { background: "eee8dc", foreground: "090909" },
+	readme: { background: "171717", foreground: "eee8dc" },
 } as const;
 
 function resolveImageSource(source: ProjectCopy["images"][number]["src"]) {

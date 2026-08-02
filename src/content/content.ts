@@ -20,7 +20,7 @@ export interface ProjectCopy {
 	stack: string[];
 	layers: string[];
 	images: Array<{ src: ContentImageSource; alt?: string }>;
-	visual: "epitime" | "workshop" | "reflect";
+	visual: "epitime" | "workshop" | "readme";
 	links: ProjectLink[];
 }
 
@@ -212,23 +212,26 @@ export const content: Record<Locale, PortfolioCopy> = {
 					links: [{ label: "View the platform", href: "https://workshopressources.fr/", external: true }],
 				},
 				{
-					id: "reflect",
+					id: "readme-studio",
 					index: "03 / 03",
-					title: "ReFlect",
-					kicker: "Clear licensing infrastructure for FiveM teams.",
+					title: "README Studio",
+					kicker: "A GitHub profile editor that turns a blank page into a personal surface.",
 					description:
-						"A platform for delivering and operating FiveM bases, with Discord access, server-bound licence activation, client and administration dashboards, multi-server logs, team access and service-status visibility. The platform was built entirely by me.",
-					outcome: "A technical delivery workflow becomes usable by both clients and the team operating it.",
-					meta: "Team product · 2026",
-					stack: ["React", "Vite", "JavaScript", "Python", "FiveM", "Flask"],
-					layers: ["Interface", "Logs", "Management"],
+						"A local-first visual editor for GitHub profile READMEs. It assembles blocks with drag and drop, lets each be tuned in an inspector, previews the result in GitHub light or dark mode and exports clean Markdown.",
+					outcome: "A GitHub profile can be designed and published without an account, a backend or Markdown friction.",
+					meta: "Open-source product · 2026",
+					stack: ["React", "Vite", "JavaScript", "Vitest", "GitHub Pages"],
+					layers: ["Compose", "Preview", "Export"],
 					images: [
-						{ src: "/projects/interface.jpeg", alt: "ReFlect interface" },
-						{ src: "/projects/logs.png", alt: "ReFlect server logs" },
-						{ src: "/projects/manage.png", alt: "ReFlect management dashboard" },
+						{ src: "/projects/readme1.png", alt: "README Studio composer placeholder" },
+						{ src: "/projects/readme2.png", alt: "README Studio preview placeholder" },
+						{ src: "/projects/readme3.png", alt: "README Studio export placeholder" },
 					],
-					visual: "reflect",
-					links: [{ label: "View ReFlect", href: "https://reflect-dev.com/", external: true }],
+					visual: "readme",
+					links: [
+						{ label: "Open README Studio", href: "https://alexistb2904.github.io/readme-studio/", external: true },
+						{ label: "Source code", href: "https://github.com/alexistb2904/readme-studio", external: true },
+					],
 				},
 			],
 		},
@@ -289,10 +292,11 @@ export const content: Record<Locale, PortfolioCopy> = {
 					actions: [{ label: "View the code", href: "https://github.com/alexistb2904/sbox-vscode-extension", external: true }],
 				},
 				{
-					code: "CMP / 02",
-					title: "Component systems",
-					text: "A reusable React library built with Vite and documented in Storybook to work on consistency, maintainability and visual contracts.",
-					note: "React · Vite · Storybook · Design systems",
+					code: "OPS / 02",
+					title: "ReFlect",
+					text: "A platform for delivering and operating FiveM bases, with Discord access, server-bound licence activation, client and administration dashboards, multi-server logs, team access and service-status visibility.",
+					note: "React · Vite · Python · FiveM · Flask",
+					actions: [{ label: "Open ReFlect", href: "https://reflect-dev.com/", external: true }],
 				},
 				{
 					code: "SEC / 03",
@@ -467,23 +471,26 @@ export const content: Record<Locale, PortfolioCopy> = {
 					links: [{ label: "Voir la plateforme", href: "https://workshopressources.fr/", external: true }],
 				},
 				{
-					id: "reflect",
+					id: "readme-studio",
 					index: "03 / 03",
-					title: "ReFlect",
-					kicker: "Une infrastructure de licences lisible pour les équipes FiveM.",
+					title: "README Studio",
+					kicker: "Un éditeur de profil GitHub qui transforme une page blanche en surface personnelle.",
 					description:
-						"Une plateforme de livraison et d'exploitation de bases FiveM accès Discord, activation de licences liées à un serveur, dashboards client et administration, logs multi-serveurs, accès équipe et visibilité sur l'état des services. Plateforme totalement construite par mes soins.",
-					outcome: "Un workflow de livraison technique devient utilisable par les clients comme par l'équipe qui l'opère.",
-					meta: "Produit d'équipe · 2026",
-					stack: ["React", "Vite", "JavaScript", "Python", "FiveM", "Flask"],
-					layers: ["Interface", "Logs", "Management"],
+						"Un éditeur visuel local-first pour les README de profil GitHub. Il assemble des blocs en glisser-déposer, permet de régler chaque contenu dans un inspecteur, affiche le résultat dans les modes clair ou sombre de GitHub et exporte un Markdown propre.",
+					outcome: "Un profil GitHub peut être conçu et publié sans compte, backend ni friction liée au Markdown.",
+					meta: "Produit open source · 2026",
+					stack: ["React", "Vite", "JavaScript", "Vitest", "GitHub Pages"],
+					layers: ["Composer", "Aperçu", "Export"],
 					images: [
-						{ src: "/projects/interface.jpeg", alt: "Interface ReFlect" },
-						{ src: "/projects/logs.png", alt: "Logs serveur ReFlect" },
-						{ src: "/projects/manage.png", alt: "Tableau de gestion ReFlect" },
+						{ src: "/projects/readme1.png", alt: "Page d'accueil README Studio" },
+						{ src: "/projects/readme2.png", alt: "Placeholder de l'aperçu README Studio" },
+						{ src: "/projects/readme3.png", alt: "Placeholder de l'export README Studio" },
 					],
-					visual: "reflect",
-					links: [{ label: "Voir ReFlect", href: "https://reflect-dev.com/", external: true }],
+					visual: "readme",
+					links: [
+						{ label: "Ouvrir README Studio", href: "https://alexistb2904.github.io/readme-studio/", external: true },
+						{ label: "Code source", href: "https://github.com/alexistb2904/readme-studio", external: true },
+					],
 				},
 			],
 		},
@@ -550,10 +557,11 @@ export const content: Record<Locale, PortfolioCopy> = {
 					actions: [{ label: "Voir le code", href: "https://github.com/alexistb2904/sbox-vscode-extension", external: true }],
 				},
 				{
-					code: "CMP / 02",
-					title: "Systèmes de composants",
-					text: "Une bibliothèque React réutilisable construite avec Vite et documentée dans Storybook pour travailler la cohérence, la maintenance et les contrats visuels.",
-					note: "React · Vite · Storybook · Design systems",
+					code: "OPS / 02",
+					title: "ReFlect",
+					text: "Une plateforme de livraison et d'exploitation de bases FiveM avec accès Discord, activation de licences liées à un serveur, dashboards client et administration, logs multi-serveurs, accès équipe et visibilité sur l'état des services.",
+					note: "React · Vite · Python · FiveM · Flask",
+					actions: [{ label: "Ouvrir ReFlect", href: "https://reflect-dev.com/", external: true }],
 				},
 				{
 					code: "SEC / 03",

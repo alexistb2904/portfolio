@@ -1611,7 +1611,7 @@ strong {
 	color: var(--ink);
 }
 
-.project-reflect {
+.project-readme {
 	background: var(--bone);
 	color: var(--ink);
 }
@@ -1679,8 +1679,9 @@ strong {
 	font-variation-settings: "wdth" 55;
 }
 
-.project-reflect .project-title {
-	font-variation-settings: "wdth" 110;
+.project-readme .project-title {
+	font-size: clamp(4rem, 8.4vw, 9.6rem);
+	font-variation-settings: "wdth" 80;
 }
 
 .project-stage {

@@ -26,5 +26,5 @@ For contact, use the portfolio contact form or email [alexistb2904@gmail.com](ma
 
 ## Optional
 
-- [S&box API Tools source code](https://github.com/alexistb2904/sbox-vscode-extension): VS Code extension for S&box development, including schema-driven completions, API documentation, diagnostics and snippets.
+- [README Studio](https://alexistb2904.github.io/readme-studio): Local-first visual editor for creating polished GitHub profile READMEs with drag-and-drop components, live preview and Markdown export. [Source code](https://github.com/alexistb2904/readme-studio).
 - [Security research lab](https://alexistb2904.github.io/kozaci/): Academic, isolated-environment research project about low-level Linux security mechanisms.
