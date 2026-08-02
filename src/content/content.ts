@@ -229,7 +229,7 @@ export const content: Record<Locale, PortfolioCopy> = {
 					],
 					visual: "readme",
 					links: [
-						{ label: "Open README Studio", href: "https://alexistb2904.github.io/readme-studio/", external: true },
+						{ label: "Open README Studio", href: "https://readme.alexistb.com", external: true },
 						{ label: "Source code", href: "https://github.com/alexistb2904/readme-studio", external: true },
 					],
 				},
@@ -488,7 +488,7 @@ export const content: Record<Locale, PortfolioCopy> = {
 					],
 					visual: "readme",
 					links: [
-						{ label: "Ouvrir README Studio", href: "https://alexistb2904.github.io/readme-studio/", external: true },
+						{ label: "Ouvrir README Studio", href: "https://readme.alexistb.com", external: true },
 						{ label: "Code source", href: "https://github.com/alexistb2904/readme-studio", external: true },
 					],
 				},
