@@ -1,4 +1,4 @@
-# Alexis Thierry-Bellefond — Creative Developer & Engineer
+# Alexis Thierry-Bellefond - Creative Developer & Engineer
 
 > Alexis Thierry-Bellefond is a Paris-based creative full-stack developer and engineering student. This portfolio presents his web, mobile and software work, with an emphasis on complete systems: interface, business logic, data, deployment and runtime reliability.
 

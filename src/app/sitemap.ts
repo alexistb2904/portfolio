@@ -1,14 +1,18 @@
 import type { MetadataRoute } from "next";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://alexistb2904.vercel.app";
+import { absoluteUrl } from "@/lib/seo";
+import { getLocalizedPath, supportedLocales } from "@/lib/routes";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-	return [
-		{
-			url: siteUrl,
-			lastModified: new Date(),
-			changeFrequency: "monthly",
-			priority: 1,
+	return supportedLocales.map((locale) => ({
+		url: absoluteUrl(getLocalizedPath(locale)),
+		lastModified: new Date(),
+		changeFrequency: "monthly",
+		priority: 1,
+		alternates: {
+			languages: {
+				fr: absoluteUrl(getLocalizedPath("fr")),
+				en: absoluteUrl(getLocalizedPath("en")),
+			},
 		},
-	];
+	}));
 }

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { ArrowLeft, RefreshCw } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { Locale } from "@/lib/locale";
+import { getAlternatePath, getLocalizedPath } from "@/lib/routes";
 
 type ErrorTerminalProps = {
 	kind: "not-found" | "error";
@@ -61,36 +62,33 @@ const copy = {
 
 export function ErrorTerminal({ kind, retry, initialLocale }: ErrorTerminalProps) {
 	const [pulse, setPulse] = useState(false);
-	const [locale, setLocale] = useState<Locale>(() => {
-		if (initialLocale) return initialLocale;
-		return typeof document !== "undefined" && document.documentElement.lang === "fr" ? "fr" : "en";
-	});
 	const path = usePathname();
+	const locale: Locale = initialLocale ?? (path === "/fr" || path.startsWith("/fr/") ? "fr" : "en");
 	const messages = copy[locale];
 	const content = messages[kind];
+	const targetLocale: Locale = locale === "fr" ? "en" : "fr";
 
 	useEffect(() => {
 		const timer = window.setInterval(() => setPulse((value) => !value), 1300);
 		return () => window.clearInterval(timer);
 	}, []);
 
-	const toggleLocale = () => {
-		const nextLocale = locale === "en" ? "fr" : "en";
-		setLocale(nextLocale);
-		document.documentElement.lang = nextLocale;
-		document.cookie = `portfolio-locale=${nextLocale}; max-age=31536000; path=/; samesite=lax`;
-	};
-
 	return (
 		<main className="error-terminal" aria-labelledby="error-title">
 			<div className="error-terminal__grid" aria-hidden="true" />
 			<div className="error-terminal__rail" aria-hidden="true">
 				<span>ALEXIS THIERRY-BELLFOND</span>
-				<span>PARIS — {locale.toUpperCase()}</span>
+				<span>PARIS - {locale.toUpperCase()}</span>
 			</div>
-			<button className="error-terminal__language" type="button" onClick={toggleLocale} aria-label={messages.switchTo}>
-				{locale.toUpperCase()} / {locale === "en" ? "FR" : "EN"}
-			</button>
+			<Link
+				className="error-terminal__language"
+				href={getAlternatePath(path, targetLocale)}
+				lang={targetLocale}
+				onClick={() => {
+					document.cookie = `portfolio-locale=${targetLocale}; max-age=31536000; path=/; samesite=lax`;
+				}}>
+				{targetLocale === "fr" ? "Français" : "English"}
+			</Link>
 
 			<section className="error-terminal__panel">
 				<div className="error-terminal__stamp">
@@ -119,13 +117,13 @@ export function ErrorTerminal({ kind, retry, initialLocale }: ErrorTerminalProps
 							{content.action}
 						</button>
 					) : (
-						<Link className="error-terminal__action error-terminal__action--primary" href="/">
+						<Link className="error-terminal__action error-terminal__action--primary" href={getLocalizedPath(locale)}>
 							<ArrowLeft aria-hidden="true" />
 							{content.action}
 						</Link>
 					)}
 					{retry && (
-						<Link className="error-terminal__action" href="/">
+						<Link className="error-terminal__action" href={getLocalizedPath(locale)}>
 							<ArrowLeft aria-hidden="true" />
 							{messages.home}
 						</Link>

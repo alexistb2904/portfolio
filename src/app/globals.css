@@ -133,7 +133,7 @@ strong {
 	transform: translateY(0);
 }
 
-/* Error terminal — isolated route-recovery screen */
+/* Error terminal - isolated route-recovery screen */
 .error-terminal {
 	position: relative;
 	display: grid;
@@ -1097,6 +1097,15 @@ strong {
 	font-weight: 700;
 	letter-spacing: 0.1em;
 	perspective: 400px;
+}
+
+.language-switch > a {
+	display: grid;
+	width: 100%;
+	height: 100%;
+	place-items: center;
+	color: inherit;
+	text-decoration: none;
 }
 
 .language-face {

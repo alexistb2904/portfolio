@@ -8,11 +8,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLanguage } from "./LanguageProvider";
 import { siteBrand } from "@/config/brand";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export function Navigation() {
-	const { copy, locale, toggleLocale } = useLanguage();
+	const { copy, locale } = useLanguage();
 	const [menuOpen, setMenuOpen] = useState(false);
 	const root = useRef<HTMLElement>(null);
 	const progress = useRef<HTMLSpanElement>(null);
@@ -61,22 +62,11 @@ export function Navigation() {
 		{ scope: root }
 	);
 
-	const switchLanguage = () => {
-		const label = root.current?.querySelector(".language-face");
-		if (label && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-			gsap.fromTo(label, { rotateX: -90 }, { rotateX: 0, duration: 0.45, ease: "back.out(1.4)" });
-		}
-		toggleLocale();
-		window.requestAnimationFrame(() => {
-			window.requestAnimationFrame(() => ScrollTrigger.refresh());
-		});
-	};
-
 	return (
 		<header ref={root} className={`site-header ${menuOpen ? "is-open" : ""}`}>
 			<span ref={progress} className="scroll-progress" aria-hidden="true" />
 
-			<a className="brand" href="#top" aria-label="ATB - Alexis Thierry-Bellefond - home">
+			<a className="brand" href="#top" aria-label={copy.brand.homeLabel}>
 				<span className={`brand-logo-slot${siteBrand.logoSrc ? " has-custom-logo" : ""}`} aria-hidden="true">
 					{siteBrand.logoSrc ? (
 						<Image src={siteBrand.logoSrc} alt="" width={35} height={35} sizes="35px" />
@@ -89,11 +79,13 @@ export function Navigation() {
 				</span>
 				<span className="brand-lockup">
 					<strong>Alexis Thierry-Bellefond </strong>
-					<small>Alternant Développeur Full-stack / {new Date().getFullYear()}</small>
+					<small>
+						{copy.brand.role} / {new Date().getFullYear()}
+					</small>
 				</span>
 			</a>
 
-			<nav className="desktop-nav" aria-label="Primary navigation">
+			<nav className="desktop-nav" aria-label={copy.brand.primaryNavigation}>
 				{copy.nav.map((item, index) => (
 					<a key={item.href} href={item.href}>
 						<span>{(index + 1).toString().padStart(2, "0")}</span>
@@ -102,25 +94,17 @@ export function Navigation() {
 				))}
 			</nav>
 
-			<nav className="header-socials" aria-label="External profiles">
-				<a href="https://github.com/alexistb2904" target="_blank" rel="noreferrer" aria-label="GitHub — opens in a new tab" data-cursor-label="GITHUB">
+			<nav className="header-socials" aria-label={copy.brand.externalProfiles}>
+				<a href="https://github.com/alexistb2904" target="_blank" rel="noreferrer" aria-label={`GitHub - ${copy.brand.newTab}`} data-cursor-label="GITHUB">
 					<Github aria-hidden="true" />
 				</a>
-				<a href="https://www.linkedin.com/in/alexistb/" target="_blank" rel="noreferrer" aria-label="LinkedIn — opens in a new tab" data-cursor-label="LINKEDIN">
+				<a href="https://www.linkedin.com/in/alexistb/" target="_blank" rel="noreferrer" aria-label={`LinkedIn - ${copy.brand.newTab}`} data-cursor-label="LINKEDIN">
 					<Linkedin aria-hidden="true" />
 				</a>
 			</nav>
 
 			<div className="header-actions">
-				<button
-					className="language-switch"
-					type="button"
-					onClick={switchLanguage}
-					aria-label={`${locale.toUpperCase()} / ${copy.language.short} - ${copy.language.switchTo}`}>
-					<span className="language-face">
-						{locale.toUpperCase()} / {copy.language.short}
-					</span>
-				</button>
+				<LanguageSwitcher locale={locale} label={copy.language.selector} />
 				<button
 					className="menu-toggle"
 					type="button"

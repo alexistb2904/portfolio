@@ -27,7 +27,8 @@ export interface ProjectCopy {
 export interface PortfolioCopy {
 	skip: string;
 	menu: { open: string; close: string };
-	language: { switchTo: string; short: string };
+	language: { selector: string };
+	brand: { homeLabel: string; role: string; primaryNavigation: string; externalProfiles: string; newTab: string };
 	nav: Array<{ label: string; href: string }>;
 	hero: {
 		eyebrow: string;
@@ -137,7 +138,14 @@ export const content: Record<Locale, PortfolioCopy> = {
 	en: {
 		skip: "Skip to content",
 		menu: { open: "Open navigation", close: "Close navigation" },
-		language: { switchTo: "Passer le site en français", short: "FR" },
+		language: { selector: "Language selector" },
+		brand: {
+			homeLabel: "Alexis Thierry-Bellefond - home",
+			role: "Full-stack developer apprentice",
+			primaryNavigation: "Primary navigation",
+			externalProfiles: "External profiles",
+			newTab: "opens in a new tab",
+		},
 		nav: [
 			{ label: "Projects", href: "#work" },
 			{ label: "Method", href: "#profile" },
@@ -396,7 +404,14 @@ export const content: Record<Locale, PortfolioCopy> = {
 	fr: {
 		skip: "Aller au contenu",
 		menu: { open: "Ouvrir la navigation", close: "Fermer la navigation" },
-		language: { switchTo: "Switch website to English", short: "EN" },
+		language: { selector: "Sélecteur de langue" },
+		brand: {
+			homeLabel: "Alexis Thierry-Bellefond - accueil",
+			role: "Développeur full-stack en alternance",
+			primaryNavigation: "Navigation principale",
+			externalProfiles: "Profils externes",
+			newTab: "ouvre dans un nouvel onglet",
+		},
 		nav: [
 			{ label: "Projets", href: "#work" },
 			{ label: "Méthode", href: "#profile" },

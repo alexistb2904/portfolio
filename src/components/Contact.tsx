@@ -253,7 +253,7 @@ export function Contact() {
 			</div>
 
 			<footer className="site-footer page-shell">
-				<a className="footer-logo" href="#top" aria-label="Alexis Thierry-Bellefond — home">
+				<a className="footer-logo" href="#top" aria-label="Alexis Thierry-Bellefond - home">
 					<img src={siteBrand.logoSrc} alt={siteBrand.logoAlt} />
 				</a>
 				<p>{copy.footer.line}</p>
