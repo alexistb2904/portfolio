@@ -6,7 +6,7 @@ The portfolio is available in English and French. It is a single-page site with 
 
 Alexis builds with React, Next.js, React Native, Python, Node.js, PHP, MySQL and related deployment tooling. His work spans web applications, PWAs, Android experiences, APIs, authentication, offline support, infrastructure and developer tools.
 
-For contact, use the portfolio contact form or email [alexistb2904@gmail.com](mailto:alexistb2904@gmail.com).
+For contact, use the portfolio contact form or email [contact@alexistb.com](mailto:contact@alexistb.com).
 
 ## Portfolio
 

@@ -94,7 +94,7 @@ export default function OpenGraphImage() {
 					</div>
 					<div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 5 }}>
 						<span style={{ color: boneMuted, fontSize: 12, fontWeight: 800, letterSpacing: "0.16em" }}>CONTACT</span>
-						<span style={{ fontSize: 17, fontWeight: 800, letterSpacing: "-0.025em" }}>alexistb2904@gmail.com</span>
+						<span style={{ fontSize: 17, fontWeight: 800, letterSpacing: "-0.025em" }}>contact@alexistb.com</span>
 						<span style={{ color: boneMuted, fontSize: 13, fontWeight: 700 }}>alexistb2904.vercel.app · github.com/alexistb2904</span>
 					</div>
 				</div>

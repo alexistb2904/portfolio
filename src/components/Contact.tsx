@@ -10,7 +10,7 @@ import { useLanguage } from "./LanguageProvider";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const EMAIL = "alexistb2904@gmail.com";
+const EMAIL = "contact@alexistb.com";
 const WEBMCP_CONTACT_TOOL_NAME = "sendContactMessage";
 type SubmissionState = "idle" | "sending" | "success" | "error" | "rate_limited";
 type ContactToolResult = { ok: true; message: string } | { ok: false; error: string };
