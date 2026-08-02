@@ -3944,6 +3944,7 @@ strong {
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
+	filter: brightness(0);
 }
 
 .site-footer > p {
