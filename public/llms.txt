@@ -10,7 +10,7 @@ For contact, use the portfolio contact form or email [contact@alexistb.com](mail
 
 ## Portfolio
 
-- [Alexis Thierry-Bellefond portfolio](https://alexistb2904.vercel.app/): Primary source for the portfolio, biography, skills, experience and current selected work.
+- [Alexis Thierry-Bellefond portfolio](https://alexistb.com/): Primary source for the portfolio, biography, skills, experience and current selected work.
 
 ## Selected projects
 

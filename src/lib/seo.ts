@@ -3,7 +3,7 @@ import { content } from "@/content/content";
 import type { Locale } from "@/lib/locale";
 import { getLocalizedPath } from "@/lib/routes";
 
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://alexistb2904.vercel.app").replace(/\/$/, "");
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://alexistb.com").replace(/\/$/, "");
 
 type SeoCopy = {
 	title: string;
@@ -50,6 +50,10 @@ export function getPageMetadata(locale: Locale): Metadata {
 	return {
 		title: copy.title,
 		description: copy.description,
+		applicationName: "Alexis Thierry-Bellefond",
+		category: "portfolio",
+		creator: "Alexis Thierry-Bellefond",
+		publisher: "Alexis Thierry-Bellefond",
 		robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 		alternates: {
 			canonical: path,
@@ -91,27 +95,28 @@ export function getPortfolioStructuredData(locale: Locale) {
 				"@type": "Person",
 				"@id": `${siteUrl}/#person`,
 				name: "Alexis Thierry-Bellefond",
-				url: pageUrl,
+				url: siteUrl,
 				jobTitle: copy.personJobTitle,
 				address: { "@type": "PostalAddress", addressLocality: "Paris", addressCountry: "FR" },
+				knowsAbout: ["Full-stack development", "Web development", "Mobile application development", "React", "TypeScript", "Node.js", "React Native"],
 				sameAs: ["https://github.com/alexistb2904", "https://www.linkedin.com/in/alexistb/"],
 			},
 			{
 				"@type": "WebSite",
 				"@id": `${siteUrl}/#website`,
-				url: pageUrl,
+				url: siteUrl,
 				name: "Alexis Thierry-Bellefond",
-				inLanguage: locale,
+				inLanguage: ["en", "fr"],
 				description: copy.websiteDescription,
 			},
 			{
-				"@type": "WebPage",
+				"@type": "ProfilePage",
 				"@id": `${pageUrl}#webpage`,
 				url: pageUrl,
 				name: copy.title,
 				inLanguage: locale,
 				isPartOf: { "@id": `${siteUrl}/#website` },
-				about: { "@id": `${siteUrl}/#person` },
+				mainEntity: { "@id": `${siteUrl}/#person` },
 				description: copy.description,
 			},
 			{
@@ -129,6 +134,8 @@ export function getPortfolioStructuredData(locale: Locale) {
 						name: project.title,
 						description: project.description,
 						image: absoluteUrl(typeof project.images[0]?.src === "string" ? project.images[0].src : "/logo.svg"),
+						url: project.links[0]?.href,
+						keywords: project.stack.join(", "),
 					},
 				})),
 			},

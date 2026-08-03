@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			languages: {
 				fr: absoluteUrl(getLocalizedPath("fr")),
 				en: absoluteUrl(getLocalizedPath("en")),
+				"x-default": absoluteUrl("/"),
 			},
 		},
 	}));
